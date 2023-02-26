@@ -10,4 +10,15 @@
 import QuizWrapper from "@/components/QuizWrapper.vue";
 import LogOutButton from "@/components/LogOutButton.vue";
 import Navigation from "@/components/Navigation.vue";
+import { watchEffect } from "vue";
+import { useQuestionsStore } from "@/stores/questions";
+import {useRouter} from "vue-router"
+const questionsStore = useQuestionsStore()
+const router = useRouter();
+
+
+watchEffect(() => {
+  if (!questionsStore.token)
+    router.push("/");
+})
 </script>
