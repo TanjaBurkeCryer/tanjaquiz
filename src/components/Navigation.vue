@@ -23,7 +23,7 @@ import { getQuestions } from "@/composables/useQuestionApi";
 const selectedDifficultyLevel = ref<number>(0);
 const questionsStore = useQuestionsStore();
 
-const difficultyLevels: Array<String> = ["easy", "medium", "hard"];
+const difficultyLevels: Array<string> = ["easy", "medium", "hard"];
 
 async function changeDifficultyLevel(index: number, level: string) {
   selectedDifficultyLevel.value = index;

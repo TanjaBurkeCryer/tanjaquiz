@@ -49,13 +49,14 @@ const props = defineProps<{
   question: Question;
 }>();
 
+const emit = defineEmits(['onSubmit'])
+
 const randomizedAnswers = computed(() => shuffle());
 const selectedAnswer = ref<any>();
 const response = ref<boolean>(false);
 
 watchEffect(() => {
   if (props.question && !props.question.isChecked) {
-    console.log("Refreshed");
     selectedAnswer.value = null;
   }
 });
@@ -84,5 +85,9 @@ function cleanApiText(input: string): string {
     input = input.replaceAll(search, replacement);
   }
   return input;
+}
+
+function onSubmit() {
+  emit("onSubmit");
 }
 </script>

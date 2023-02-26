@@ -5,6 +5,7 @@
         v-for="(question, index) in questions"
         :key="index"
         :question="question"
+        @onSubmit="submit"
       />
     </article>
     <button
